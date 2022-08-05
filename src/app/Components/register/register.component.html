@@ -1,0 +1,87 @@
+<div class="outerDiv" fxLayout="column" fxLayoutAlign="center center">
+    <div class="RegistrationContainer" fxLayout="row" fxLayoutAlign="center center">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="textcontainer">
+
+            <div>
+                <h3 class="Heading">
+                    <span style="color: rgb(197, 37, 37)">F</span>
+                    <span style="color: rgb(197, 185, 12)">u</span>
+                    <span style="color: rgb(112, 207, 24)">n</span>
+                    <span style="color: rgb(21, 189, 231)">d</span>
+                    <span style="color: rgb(218, 44, 241)">o</span>
+                    <span style="color: rgb(73, 30, 230)">o</span>
+
+                </h3>
+            </div>
+            <div style="margin-bottom: 40px; margin-right: 200px;" class="Word">
+                <span style="font-size: 20px;">Create your Fundoo account</span>
+            </div>
+            <div class="Entry" fxLayout="row" fxLayoutGap="20px" fxLayout.xs="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input formControlName="FirstName" matInput placeholder="" />
+                    <mat-error>Enter your first name</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input formControlName="LastName" matInput placeholder="" />
+                    <mat-error>Enter your last name</mat-error>
+                </mat-form-field>
+
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center ">
+                <mat-form-field appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input formControlName="Email" matInput placeholder="" />
+                    <mat-error>Enter your Email</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="hint">
+                <mat-hint>You can use letters, numbers & periods </mat-hint>
+            </div>
+
+            <div>
+                <a mat-button color="primary"> Use my current email instead </a>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayout.xs="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="Password" matInput placeholder="" />
+                    <mat-error>Enter your password</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm</mat-label>
+                    <input formControlName="confirmPassword" matInput placeholder="" />
+                    <mat-error>Enter your confirm password</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+            </div>
+
+            <div>
+                <mat-checkbox>Show password</mat-checkbox>
+            </div>
+
+
+
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+
+                <button routerLink="/login" mat-button color="primary"> Sign in instead </button>
+                <button mat-raised-button color="primary"> Next </button>
+
+            </div>
+
+        </div>
+        </form>
+        <div class="container" fxLayout="column" fxHide.xs="true">
+            <img src="../../../assets/account.svg" alt="img">
+            <p style="text-align: center;">One account. All of Google working for you.</p>
+        </div>
+
+    </div>
+</div>

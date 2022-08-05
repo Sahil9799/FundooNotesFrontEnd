@@ -1,0 +1,14 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" class="style">
+        <div class="title">
+            <input type="text" placeholder="titsssle" [(ngModel)]="title">
+        </div>
+        <div class="desc">
+            <input type="text" placeholder="take a notes" [(ngModel)]="description">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <app-icon></app-icon>
+            <button (click)="onSubmit()" mat-button>Close</button>
+        </div>
+    </div>
+</div>

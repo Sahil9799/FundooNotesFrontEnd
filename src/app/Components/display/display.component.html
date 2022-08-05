@@ -1,0 +1,10 @@
+<div class="main" fxLayout="row" fxLayout="row wrap" fxFlex=110>
+    <mat-card class="note" *ngFor="let note of childMessage" fxFlex.xs="90">
+        <div (click)="openDialog(note)">
+            <div fxLayout="row" fxLayoutAlign="space-between">{{note.title}}</div>
+            <div class="desc">{{note.description}}</div>
+            <br>
+        </div>
+        <app-icon></app-icon>
+    </mat-card>
+</div>

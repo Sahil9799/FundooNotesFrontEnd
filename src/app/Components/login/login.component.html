@@ -1,0 +1,52 @@
+<div class="Outerdiv" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+    <div class="main" fxLayout="column" fxLayoutAlign="center center">
+        <div class="container">
+
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h3 class="heading">
+                    <span style="color: rgb(9, 137, 196)">F</span>
+                    <span style="color: rgb(216, 65, 65)">u</span>
+                    <span style="color: rgb(219, 154, 32)">n</span>
+                    <span style="color: rgb(209, 26, 117)">d</span>
+                    <span style="color: rgb(142, 151, 14)">o</span>
+                    <span style="color: rgb(39, 193, 78)">o</span>
+                 
+                </h3>
+
+                <h2 style="margin-top: -15px;">Sign in</h2>
+                <span style="font-size: 17px; ">Use your Google Account</span>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <div fxLayout="column" fxLayoutAlign="start center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" matInput placeholder="" />
+                        <mat-error>Enter your email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput placeholder="" />
+                        <mat-error>Enter your correct password</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="button" fxLayout="column" fxLayoutAlign="space-between start">
+                    <button routerLink="/forgot" mat-button color="primary">Forgot email?</button>
+                </div>
+
+                <div class="line" fxLayout="column" fxLayoutAlign="center start">
+                    <mat-hint>Not your computer? Use Guest mode to sign in privately.</mat-hint>
+                    <a href="https://support.google.com/chrome/answer/6130773?hl=en">Learn more</a>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <button routerLink="/register" mat-button color="primary">Create account</button>
+                    <button routerLinl="/Login"    mat-raised-button color="primary">Next</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

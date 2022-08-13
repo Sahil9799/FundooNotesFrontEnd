@@ -4,17 +4,17 @@
       <mat-icon>menu</mat-icon>
     </button>
     <div fxHide.xs>
-     <img src="../../../assets/icons8-google-keep.svg" alt="">
+     <img src="../../../assets/icons8-google-keep.svg" alt="img">
     </div>
     <h1 class="example-app-name">Fundoo</h1>
   
     <div class="searchdiv" fxLayoutAlign="space-between center">
       <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="90">
         <button mat-icon-button class="search-button">
-          <mat-icon id="search" matTooltip="Search">search</mat-icon>
+          <mat-icon id="search" matTooltip="Search"></mat-icon>
         </button>
 
-        <input fxFlex="50" matInput placeholder="Search" [style.fontSize.px]="18" class="search-window"
+        <input fxFlex="50" matInput placeholder="Search" [(ngModel)]="filterString" [style.fontSize.px]="18" (keyup)="onekeyup($event)" class="search-window"
           autocomplete="off" type="type=" text />
       </mat-form-field>
     </div>
@@ -41,7 +41,7 @@
     </div>&nbsp;
 
     <div fxflex="20"> <button mat-icon-button aria-label="profile pic icon">
-        <img src="./../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">
+        <img (click)="logout()" routerLink="./login" src="./../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">
       </button>
     </div>&nbsp;
 
@@ -68,12 +68,12 @@
 
             <div flexLayout="row" fxLayoutAlign="space-between center">
                 <img src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="" style="width: 20px; height:20px;">
-                <a mat-list-item routerLink="/Dashboard/archive" >Archive</a>
+                <a mat-list-item routerLink="/dashboard/archive" >Archive</a>
             </div>
 
             <div flexLayout="row" fxLayoutAlign="space-between center">
                 <img src="../../../assets/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="" style="width: 20px; height:20px;">
-                <a mat-list-item routerLink="/Dashboard/trash" >Trash</a>
+                <a mat-list-item routerLink="/dashboard/trash" >Trash</a>
             </div>
       </mat-nav-list>
     </mat-sidenav>

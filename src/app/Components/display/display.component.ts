@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from 'src/app/Components/update/update.component';
+import { DataserviceService } from 'src/app/Services/data/dataservice.service';
 
 @Component({
   selector: 'app-display',
@@ -9,11 +10,20 @@ import { UpdateComponent } from 'src/app/Components/update/update.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  @Input() childMessage: any;
- 
-  constructor(public dialog: MatDialog) { }
+  @Input() childMessage: any;  //input decorator to allow the data to be passed via templates(child componenet.ts)
+   @Output() updatedisplay = new EventEmitter<any>();
+   @Output() ArchiveNote = new EventEmitter<any>();
+   @Output() colornote = new EventEmitter<any>(); 
+   filterString:any;
+   message:any;
+   subscription: any;
+
+  constructor(public dialog: MatDialog, private data:DataserviceService) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.currentMessage.subscribe(message => {this.message = message;
+      console.log(this.message);
+    })
   }
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
@@ -22,10 +32,23 @@ export class DisplayComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result :any) => {
-      console.log('The dialog box closed');
+      console.log('The dialog  closed');
+      this.updatedisplay.emit(result);
       
     });
   }
 
+  //this is for archive note
+  recieveArchiveNote(event:any){
+    this.ArchiveNote.emit(event);
+  }
 
+  //this is for update note
+  operation(value: any) {
+    this.updatedisplay.emit(value);
+  }
+
+  getcolornote(event:any){
+    this.colornote.emit(event)
+  }
 }

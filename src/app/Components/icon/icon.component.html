@@ -1,8 +1,56 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" style="width: 320px;">
-    <img src="../../../assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="bell">
-    <img src="../../../assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="">
-    <img src="../../../assets/palette_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="">
-    <img src="../../../assets/image_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="">
-    <img src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="">
-    <img src="../../../assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg" style="width:20px; height: 20px;" alt="">
+<div fxLayout="row" fxLayoutAlign="space-around center" class="icons">
+
+    <img *ngIf="!isTrash" src="../../../assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg" alt="Reminder" />
+
+    <img *ngIf="!isTrash" src="../../../assets/person_add_FILL0_wght400_GRAD0_opsz48.svg" alt="Collaborator" />
+
+
+    <img [matMenuTriggerFor]="aboveMenu" *ngIf="!isTrash && !isArchive" class="palette"
+        src="../../../assets/palette_FILL0_wght400_GRAD0_opsz48.svg" alt="Colour" />
+    <mat-menu #aboveMenu="matMenu" yPosition="below">
+        <div class="pop">
+            <div *ngFor='let color of colorarray'>
+                <button [style.background]="color?.Colorcode" (click)="ColorNote(color?.Colorcode)"></button>
+            </div>
+        </div>
+    </mat-menu>
+
+
+    <img *ngIf="!isTrash" src="../../../assets/image_FILL0_wght400_GRAD0_opsz48.svg" alt="Image" />
+
+    <img (click)="archive()" *ngIf="!isTrash && !isArchive"
+        src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="Archive" />
+
+    <img (click)="Unarchieve()" *ngIf="isArchive" src="../../../assets/unarchive_FILL0_wght400_GRAD0_opsz48.svg"
+        alt="unarchive">
+
+    <mat-icon>
+        <img *ngIf="!isTrash" [matMenuTriggerFor]="menu" src="../../../assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg"
+            alt="">
+    </mat-icon>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <span *ngIf="!isTrash && !isArchive" (click)="Trashnote()">Delete note</span>
+        </button>
+        <button mat-menu-item>
+            <span>Add label</span>
+        </button>
+        <button mat-menu-item>
+            <span>Add drawing</span>
+        </button>
+        <button mat-menu-item>
+            <span>Make a copy</span>
+        </button>
+        <button mat-menu-item>
+            <span>Show checkboxex</span>
+        </button>
+    </mat-menu>
+
+</div>
+<div fxLayout="row" fxLayoutAlign="start" class="delete">
+    <img (click)="Deletenote()" *ngIf="isTrash" src="../../../assets/delete_forever_FILL0_wght400_GRAD0_opsz48.svg"
+        alt="Image" />
+    <img (click)="Restorenote()" *ngIf="isTrash" src="../../../assets/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg"
+        alt="Image" />
 </div>

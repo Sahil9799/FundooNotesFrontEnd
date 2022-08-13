@@ -1,2 +1,2 @@
 <app-createnote (messageEvent)="receiveMessage($event)"></app-createnote>
-<app-display [childMessage]="parentMessage" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-display>
+<app-display [childMessage]="parentMessage" (archivenote)="recieveArchiveNote($event)" (colornote)="getcolornote($event)" (updatedisplay)="updateData($event)"></app-display>

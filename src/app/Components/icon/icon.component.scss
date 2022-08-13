@@ -1,0 +1,36 @@
+.icons img {
+    width: 20px;
+    height: 20px;
+}
+
+.icons {
+    width: 225px;
+}
+
+.palette {
+    background-color: transparent;
+    border: none;
+}
+
+.pop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: white;
+    max-width: 150px;
+    margin-left: 5px;
+   
+  }
+
+.pop button{
+    background-color: transparent;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.delete img{
+    width: 25px;
+    height: 25px;
+}

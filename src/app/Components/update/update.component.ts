@@ -9,6 +9,7 @@ import { NoteService } from 'src/app/Services/noteservice/noteservice.service';
 })
 export class UpdateComponent implements OnInit {
   @Output() updatedisplay = new EventEmitter<any>();
+  @Output() colornote = new EventEmitter<any>();
   title: any;
   description: any;
   colour: any;
@@ -35,10 +36,16 @@ export class UpdateComponent implements OnInit {
       description: this.description,
       colour: "white",
     }
-
-    this.note.updatenote(data,this.noteId).subscribe((res: any) => {
+    console.log(data);
+    this.note.updatenote(data,this.data.noteId).subscribe((res :any)=>{
       console.log("note is updated", res);
+      this.onNoClick();
       this.updatedisplay.emit(res)
     })
   }
+  getcolornote(event:any){
+    console.log(event);
+    this.colour=event;
+  }
+
 }

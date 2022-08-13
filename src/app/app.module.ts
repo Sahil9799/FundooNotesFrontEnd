@@ -30,6 +30,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { UpdateComponent } from 'src/app/Components/update/update.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import { AuthService } from 'src/app/Services/shared/auth.service';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { FilterPipe } from './pipe/filter.pipe';
+import { DemoComponent } from './components/demo/demo.component';
 
 
 @NgModule({
@@ -47,6 +52,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     IconComponent,
     DisplayComponent,
     UpdateComponent,
+    FilterPipe,
+    DemoComponent
    
     
   ],
@@ -69,9 +76,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatCardModule,
     MatExpansionModule,
+    MatMenuModule,
+    MatSnackBarModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

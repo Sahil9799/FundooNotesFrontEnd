@@ -16,7 +16,7 @@
 
         <input fxFlex="50" matInput placeholder="Search" [(ngModel)]="filterString" [style.fontSize.px]="18" (keyup)="onekeyup($event)" class="search-window"
           autocomplete="off" type="type=" text />
-      </mat-form-field>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
     </div>
 
     <div fxFlex="20" class="settingbtn" div fxLayout="row" fxLayoutAlign="end end">
@@ -25,20 +25,22 @@
       </button>
     </div>&nbsp;
 
-    <div fxflex="20"> <button mat-icon-button aria-label="View agenda button">
-        <img src="./../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">
-      </button>
-    </div>&nbsp;
+    <div class="icon" (click)="list()" *ngIf="gridView">
+      <img src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg">
+    </div>
+    <div class="icon" (click)="grid()" *ngIf="!gridView">
+      <img src="../../../assets/grid_view_FILL0_wght400_GRAD0_opsz48.svg">
+    </div>&nbsp;&nbsp;&nbsp;
 
     <div fxflex="20"> <button mat-icon-button aria-label="Setting icon">
         <img src="./../../../assets/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">
       </button>
-    </div>&nbsp;
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <div fxflex="20"> <button mat-icon-button aria-label="app icon">
         <img src="./../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">
       </button>
-    </div>&nbsp;
+    </div>&nbsp;&nbsp;&nbsp;
 
     <div fxflex="20"> <button mat-icon-button aria-label="profile pic icon">
         <img (click)="logout()" routerLink="./login" src="./../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="img" class="icon">

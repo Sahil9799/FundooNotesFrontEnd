@@ -17,12 +17,16 @@ export class DisplayComponent implements OnInit {
    filterString:any;
    message:any;
    subscription: any;
+   isGrid:any = true;
 
   constructor(public dialog: MatDialog, private data:DataserviceService) { }
 
   ngOnInit(): void {
     this.subscription = this.data.currentMessage.subscribe(message => {this.message = message;
       console.log(this.message);
+    })
+    this.data.gridList.subscribe((flag)=>{this.isGrid=flag;
+      console.log(this.isGrid)
     })
   }
   openDialog(note:any): void {

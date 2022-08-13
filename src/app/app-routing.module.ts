@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import { DemoComponent } from './components/demo/demo.component';
 import { ForgotComponent } from './Components/forgot/forgot.component';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -24,9 +23,8 @@ const routes: Routes = [
     {path:'archive',component:ArchiveComponent},
     {path:'trash',component:TrashComponent},
   ]
-  },
-  {path:'demo',component:DemoComponent}
-
+  }
+ 
 ];
 
 @NgModule({

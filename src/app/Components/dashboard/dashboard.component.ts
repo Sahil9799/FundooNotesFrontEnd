@@ -15,7 +15,7 @@ export class DashboardComponent implements OnDestroy {
   message:any;
   subscription: any;
   filterString:any;
-
+  gridView:any=true;
 
 
   private _mobileQueryListener: () => void;
@@ -44,6 +44,15 @@ export class DashboardComponent implements OnDestroy {
   onekeyup(text:any){
     this.data.changeMessage(text.target.value);
     console.log(this.filterString);
+  }
+
+  grid(){
+    this.gridView=true;
+    this.data.changeView(this.gridView)
+  }
+  list(){
+    this.gridView=false;
+    this.data.changeView(this.gridView)
   }
 
 }
